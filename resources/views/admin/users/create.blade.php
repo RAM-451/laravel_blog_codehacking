@@ -8,8 +8,9 @@
 
 <div class="form-group">
 {{Form :: label('name', 'Name')}}
-{{Form :: text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter Username'])}}
+{{Form :: text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter Username',])}}
 </div>
+
 <div class="form-group">
 {{Form :: label('email', 'Email')}}
 {{Form :: email('email', '', ['class' => 'form-control', 'placeholder' => 'Enter Email'])}}
@@ -17,7 +18,7 @@
 
 <div class="form-group">
 {{Form :: label('password', 'Password')}}
-{{Form :: password('password', ['class' => 'form-control', 'placeholder' => 'Enter content'])}}
+{{Form :: password('password', ['class' => 'form-control', 'placeholder' => 'Enter Password'])}}
 </div>
 
 <div class="form-group">
@@ -30,8 +31,8 @@
 </div>
 
 <div class="form-group">
-{{Form :: label('file', 'User Photo')}}
-{{Form :: file('file', null, ['class' => 'file-control', ])}}
+{{Form :: label('photo_id', 'User Photo')}}
+{{Form :: file('photo_id', null, ['class' => 'file-control', ])}}
 </div>
 <br>
 
@@ -42,8 +43,9 @@
 
 {{ Form::close() }}
 
-@include('includes.form_error')
 
+
+@include('includes.form_error')
 
 @endsection
 
