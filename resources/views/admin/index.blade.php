@@ -5,5 +5,5 @@
 @section('content')
 
 
-<h1>This is admin</h1>
+<h1>This is admin index page</h1>
 @endsection

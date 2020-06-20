@@ -3,7 +3,14 @@
 @section('content')
 
 
+@if(Session::has('deleted_user'))
+<div class="alert alert-danger alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{session('deleted_user')}}
+</div>
 
+
+@endif
 
 <h1>Users</h1>
 <table class="table responsive">
@@ -17,6 +24,8 @@
       <th scope="col">Status</th>
       <th scope="col">Created</th>
       <th scope="col">Updated</th>
+      
+  
   
     </tr>
   </thead>
@@ -30,8 +39,9 @@
       <td>{{$user->email}}</td>
       <td>{{$user->role->name}}</td>
       <td>{{$user->is_active == 1 ? 'Active':"Not Active"}}</td>
-      <td>{{$user->created_at->diffForHumans()}}</td>
-      <td>{{$user->updated_at->diffForHumans()}}</td>
+      <td>{{$user->created_at}}</td>
+      <td>{{$user->updated_at}}</td>
+ 
       
     </tr>
     @endforeach
@@ -41,4 +51,10 @@
 </table>
 
 
+
+</div>
+
+
 @endsection
+
+

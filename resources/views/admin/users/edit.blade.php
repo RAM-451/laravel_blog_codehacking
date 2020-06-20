@@ -1,11 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container-fluid">
 
 <h1> Edit User  Here</h1>
+<div class="col-sm-4 border border-dark rounded">
+<img src="{{$user->photo?$user->photo->file:'/Images/sample_img.jpg'}}" alt="" class ="img-responsive img-rounded ">
+
+</div>
+<div class="col-sm-6">
+
 {{ Form::model($user,['method'=>'PATCH','route'=>['users.update',$user],'files'=>true]) }}
-<div class="col-sm-9">
+
 
 <div class="form-group">
 {{Form :: label('name', 'Name')}}
@@ -34,18 +39,35 @@
 {{Form :: label('photo_id', 'User Photo')}}
 {{Form :: file('photo_id', null, ['class' => 'file-control', ])}}
 </div>
-<br>
 
+
+<div class="row">
+
+<div class="col-sm-6">
 <div class="form-group">
-{{Form::submit('Create User', ['class' => 'btn btn-primary'])}}
+{{Form::submit('Upadte User', ['class' => 'btn btn-primary'])}}
 </div>
-</div>
-<div class="col-sm-3 border border-dark rounded">
-<img src="{{$user->photo?$user->photo->file:'/Images/sample_img.jpg'}}" alt="" class ="img-responsive img-rounded ">
-</div>
+
 
 {{ Form::close() }}
 </div>
+<div class="col-sm-6">
+{{ Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) }}
+
+<div class="form-group">
+{{Form::submit('Delete User', ['class' => 'btn btn-danger '])}}
+</div>
+
+{{ Form::close() }}
+
+</div>
+</div>
+</div>
+
+
+
+
+
 
 @include('includes.form_error')
 
