@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\carbon;
 use App\Post;
 use App\Photo;
+use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 
 class AdminPostsController extends Controller
@@ -18,7 +19,7 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::all()->reverse() ;
         return view('/admin.posts.index',compact('posts'));
     }
 
@@ -29,7 +30,10 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        return view('/admin.posts.create');
+
+        $categories = Category::pluck('name','id')->all();
+        return view('/admin.posts.create',compact('categories'));
+
     }
 
     /**
