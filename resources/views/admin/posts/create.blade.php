@@ -5,7 +5,7 @@
 
 <H1> Create User  Here</H1>
 
-{{ Form::open(['method'=>'post','files'=>true]) }}
+{{ Form::open(['method'=>'POST','action'=>'AdminPostsController@store','files'=>true]) }}
 
 <div class="form-group">
 {{Form :: label('title', 'Title')}}
@@ -14,7 +14,7 @@
 
 <div class="form-group">
 {{Form :: label('category_id', 'Category_id')}}
-{{Form :: select('category_id',[''=>"Option"],null, ['class' => 'form-control',])}}
+{{Form :: select('category_id',['1'=>"PHP",'2'=>"javascript"],null, ['class' => 'form-control',])}}
 </div>
 
 <div class="form-group">
